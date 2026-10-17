@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Research in 6 Easy Lessons</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050706;--p:#0b100d;--p2:#111a14;--ink:#e9f2ec;--mute:#93a79b;--line:rgba(25,230,140,.18);--g:#19e68c;--gd:#0a3d2a;
+--serif:"Instrument Serif",Georgia,"Times New Roman",serif;--sans:"Manrope","Helvetica Neue",Arial,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#050706}}
+:root[data-theme="dark"]{--bg:#050706}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 66px);background:var(--bg)}
+body{margin:0;background:radial-gradient(800px 380px at 85% -60px,rgba(25,230,140,.12),transparent 70%),var(--bg);color:var(--ink);font:18px/1.7 var(--sans)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:rgba(5,7,6,.95);border-bottom:1px solid var(--line)}
+.bar{max-width:820px;margin:0 auto;padding:8px 18px;display:flex;align-items:center;gap:12px}
+.bar nav{display:flex;gap:6px;overflow-x:auto}
+.bar nav a{flex:none;color:var(--mute);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 13px;font:700 14px var(--sans)}
+.bar nav a:hover{color:var(--g);border-color:var(--g)}
+#score{margin-left:auto;flex:none;font:600 14px var(--sans);color:var(--g)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--g);outline-offset:2px}
+main{max-width:820px;margin:0 auto;padding:0 18px 90px}
+h1{font:400 clamp(42px,8vw,78px)/1 var(--serif);margin:56px 0 16px}
+h1 em{color:var(--g)}
+.lead{font-size:20px;color:var(--mute);max-width:56ch;margin:0 0 28px}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:16px}
+th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;background:var(--p)}
+th{color:var(--g);font-weight:600}
+.lesson{padding:60px 0 10px;border-top:1px solid var(--line);margin-top:48px}
+.num{font:400 clamp(90px,20vw,160px)/.8 var(--serif);color:transparent;-webkit-text-stroke:1.5px var(--g);margin:0}
+h2{font:400 clamp(34px,6vw,50px)/1.05 var(--serif);margin:8px 0 4px}
+.old{color:var(--mute);font-size:15px;margin:0 0 18px}
+.one{font-size:21px;margin:0 0 18px;max-width:50ch}
+.box{background:var(--p);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 16px}
+.box h3{font:700 14px var(--sans);color:var(--g);margin:0 0 6px}
+.box p{margin:0}
+.eg{border-left:4px solid var(--g);background:var(--p2);border-radius:0 10px 10px 0;padding:14px 18px;margin:0 0 16px}
+.eg h3{font:700 14px var(--sans);color:var(--g);margin:0 0 4px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 16px}
+.pair div{border-radius:12px;padding:14px 16px;font-size:16.5px}
+.do{background:var(--gd);border:1px solid var(--g)}
+.dont{background:var(--p);border:1px dashed var(--mute);color:var(--mute)}
+.pair b{display:block;font:700 14px var(--sans);margin-bottom:4px}
+.do b{color:var(--g)}
+ul{padding-left:22px;margin:0 0 6px}
+.rule{background:var(--g);color:#03130c;border-radius:12px;padding:14px 18px;font:800 19px/1.35 var(--sans);margin:0 0 22px}
+.quiz{margin-top:8px}
+.quiz h3{font:400 28px var(--serif);margin:0 0 10px}
+.qc{background:var(--p);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:14px}
+.qc.ok{border-color:var(--g)}
+.qc p{margin:0 0 12px}
+.opts{display:grid;gap:8px}
+.opt{text-align:left;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:11px 14px;font:16.5px/1.45 var(--sans);cursor:pointer}
+.opt:hover{border-color:var(--g)}
+.opt.yes{background:var(--gd);border-color:var(--g)}
+.opt.no{border-style:dashed;color:var(--mute);text-decoration:line-through}
+.why{display:none;margin-top:12px;border-left:3px solid var(--g);padding-left:14px;font-size:16.5px}
+.why.on{display:block}
+.msg{margin-top:8px;font-size:15px;color:var(--mute);min-height:1.3em}
+dl{margin:0}dt{font-weight:800;color:var(--g);margin-top:12px}dd{margin:0}
+.cheat li{margin-bottom:8px}
+.ghost{display:inline-block;color:var(--g);border:1px solid var(--g);border-radius:8px;padding:9px 16px;text-decoration:none;font-weight:600;margin-top:10px}
+@media (max-width:640px){.pair{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="bar"><nav aria-label="Lessons"><a href="#l1">1 Aim</a><a href="#l2">2 Parts</a><a href="#l3">3 Way</a><a href="#l4">4 Ask</a><a href="#l5">5 Fair</a><a href="#l6">6 Proof</a><a href="#words">Words</a></nav><span id="score" role="status">0 / 14</span></div></header>
+<main>
+<h1>Research in 6 easy lessons. <em>Like a science project.</em></h1>
+<p class="lead">Before you design an app, you find out what people really need. That is research. These six lessons show you how, in plain words. Each lesson has an example, a rule to remember, and a short quiz.</p>
+
+<div class="box"><h3>Our example for every lesson</h3><p>Your school wants an app that shows students if the canteen queue is long. You need to do research first.</p></div>
+
+<div class="scroll"><table>
+<tr><th>Lesson</th><th>Name</th><th>Like in science class</th><th>Old name (GTMQC)</th></tr>
+<tr><td>1</td><td><b>Aim</b></td><td>The aim at the top of your report</td><td>Goal (G)</td></tr>
+<tr><td>2</td><td><b>Parts</b></td><td>The chapters of your topic</td><td>Topics (T)</td></tr>
+<tr><td>3</td><td><b>Way</b></td><td>The method you choose</td><td>Method (M)</td></tr>
+<tr><td>4</td><td><b>Ask</b></td><td>The questions you write</td><td>Questions (Q)</td></tr>
+<tr><td>5</td><td><b>Fair</b></td><td>Making it a fair test</td><td>Check (C)</td></tr>
+<tr><td>6</td><td><b>Proof</b></td><td>Your results: before and after</td><td>Metrics</td></tr>
+</table></div>
+
+<div id="lessons"></div>
+
+<section class="lesson" id="words">
+<h2>Words explained</h2>
+<dl>
+<dt>Interview</dt><dd>A talk with one person, with questions you prepared.</dd>
+<dt>Survey</dt><dd>The same questions sent to many people.</dd>
+<dt>Qualitative</dt><dd>Stories. It tells you why or how.</dd>
+<dt>Quantitative</dt><dd>Numbers. It tells you how many or how often.</dd>
+<dt>Baseline</dt><dd>The “before” number, taken before your app exists.</dd>
+<dt>Prototype</dt><dd>An early test version of your app. It does not need to work for real.</dd>
+<dt>Usability test</dt><dd>You watch someone try a task on your prototype.</dd>
+<dt>Observed vs self-reported</dt><dd>Observed: you saw it. Self-reported: they told you. Seeing is stronger, because people forget.</dd>
+</dl>
+</section>
+
+<section class="lesson" id="cheat">
+<h2>Cheat sheet</h2>
+<ol class="cheat">
+<li><b>Aim:</b> “I want to find out ___ so I can decide ___.”</li>
+<li><b>Parts:</b> 3 to 5 short labels, not questions.</li>
+<li><b>Way:</b> talk first, then count.</li>
+<li><b>Ask:</b> past, fair, one thing, no mention of your idea.</li>
+<li><b>Fair:</b> check every question, then test it on one friend.</li>
+<li><b>Proof:</b> same task before and after. Say how you got each number.</li>
+</ol>
+<p>Now try it on your own project, then use the Builder to get checked and to make your AI prompt.</p>
+<a class="ghost" href="https://claude.ai/artifact/UPEPLMpjJk4DU6a8U7Twf8">Open the Builder</a>
+</section>
+</main>
+<script>
+var L=[
+{n:1,t:"Aim",o:"Old name: Goal (G)",one:"Say what you want to find out, and what you will do with the answer.",sch:"In a science report, the aim comes first. Without it, you do not know what the experiment is for.",frame:"I want to find out ___ so I can decide ___.",eg:"I want to find out how students choose when to go to the canteen, so I can decide what my app should show first.",ok:"Name the decision you will make.",no:"“I want to see if people like my app.” (You are not learning anything you can use.)",rule:"No decision, no point.",q:[
+{p:"Which aim is the best?",o:["I want to find out if students like my app.","I want to find out how students choose when to go to the canteen, so I can decide what my app should show first.","I want to build an app.","I want to know about food."],a:1,e:"The second one says what you want to learn and what you will decide. The others have no decision, or they are too big."},
+{p:"What is missing here? “I want to find out how students use the canteen.”",o:["A decision to make with the answer","A colour","A longer name","Nothing is missing"],a:0,e:"Add “so I can decide …”. Research without a decision goes nowhere."}]},
+{n:2,t:"Parts",o:"Old name: Topics (T)",one:"Break your big aim into 3 to 5 small parts to look at.",sch:"Like the chapters in a book. Each chapter covers one piece of the big topic.",frame:"Part 1, Part 2, Part 3 …",eg:"Before lunch / In the queue / When the queue is too long / What students do instead.",ok:"Short labels, about 3 to 5.",no:"Writing full questions here, or making 12 parts.",rule:"3 to 5 parts. Short labels.",q:[
+{p:"How many parts should you pick?",o:["1","3 to 5","12","20"],a:1,e:"Too few and you miss things. Too many and it gets messy."},
+{p:"Which one is a good PART (not a question)?",o:["What do you do when the queue is long?","When the queue is too long","Do you like queues?","Our app’s queue button"],a:1,e:"A part is a short label. Questions come later, in lesson 4. And do not mention your app yet."}]},
+{n:3,t:"Way",o:"Old name: Method (M)",one:"Choose how you will find out. Stories need talking. Numbers need counting.",sch:"In science you choose a method before you start. Here you have two main ways.",frame:"Why or how? Talk to people. How many or how often? Count with a survey.",eg:"First talk to 5 students about the queue. Then send a 10-question survey to count how common each problem is.",ok:"Talk first, then count.",no:"Sending a survey first. You might ask about the wrong things.",rule:"Talk first, then count.",q:[
+{p:"You want to know: how many students skip lunch because the queue is long. Which way is best?",o:["Talk to a few students","Count with a survey","Ask your cat","Guess"],a:1,e:"“How many” is a counting question. A survey asks many people."},
+{p:"Which order is best?",o:["Talk first, then count","Count first, then talk","Only guess","Only count"],a:0,e:"Talking first shows you the real problems. Then you can put the right choices in your survey."}]},
+{n:4,t:"Ask",o:"Old name: Questions (Q)",one:"Write questions that get true, useful answers.",sch:"Like writing a fair question in an exam. A tricky or leading question gives a bad result.",frame:"Tell me about the last time you …",eg:"Tell me about the last time you waited in the canteen queue. What happened?",ok:"Ask about the past. Ask one thing. Use a story.",no:"Ask about the future, ask yes or no questions, or put your opinion inside.",rule:"Past. Fair. One thing. No app talk.",pairs:[["Tell me about the last time you waited in the queue.","Would you use a queue app?"],["How did you feel when that happened?","Don’t you find it annoying?"],["How do you decide where to eat?","How do you choose your food and how do you feel about prices?"],["In the last 5 school days, how many days did you skip lunch? (0 / 1–2 / 3–4 / 5)","Do you often skip lunch?"]],q:[
+{p:"Which question is the best for an interview?",o:["Do you hate the long queue?","Tell me about the last time you waited in the canteen queue.","Would you use a queue app?","Isn’t the queue too long?"],a:1,e:"It asks for a real story from the past. The others are yes or no, about the future, or leading."},
+{p:"What is wrong with: “How do you choose your food and how do you feel about the prices?”",o:["It asks two things","It is too short","It is about the past","Nothing"],a:0,e:"Two questions in one. Split it so each answer is clear."},
+{p:"Which survey question is the best?",o:["Do you often wait a long time?","In the last 5 school days, how many days did you skip lunch? (0 / 1–2 / 3–4 / 5)","How easy and cheap is the canteen?","Will you use the canteen next year?"],a:1,e:"It has a time period, asks about the past, and gives clear number choices."}]},
+{n:5,t:"Fair",o:"Old name: Check (C)",one:"Check every question to make it a fair test.",sch:"A fair test in science means nothing sneaky changes the result. Questions can be sneaky too.",frame:"Six checks for every question",eg:"Question: “Don’t you think the queue is annoying?” It leads you to say yes. Fix: “How did you feel while you waited?”",ok:"Does it link to my aim? Is it about the past? Is it free of hints? Is it one thing? Does it skip my app? Would a friend understand it?",no:"Skipping the check and going straight to real people.",rule:"Check it. Then test it on one friend.",q:[
+{p:"What is the problem with: “Don’t you think the canteen queue is annoying?”",o:["It leads you to say yes","It is too long","It is about the past","It has no problem"],a:0,e:"“Don’t you think” and “annoying” push the answer. Ask in a fair way."},
+{p:"When should you test your questions on a friend?",o:["Before the real interviews","After all the interviews","Never","Only if you have spare time at the end"],a:0,e:"It takes about 10 minutes and shows you confusing questions before they cost you a real interview."}]},
+{n:6,t:"Proof",o:"Old name: Metrics",one:"Get a number before your app and the same number after. This is your proof.",sch:"Like a science fair test: change one thing, keep everything else the same, and compare.",frame:"Same task. Same measure. Say how you got it.",eg:"Before: it took 8 minutes to find out if the queue was long (I timed 3 students). After: 3 minutes (5 testers used my prototype).",ok:"Say how many people, and if you saw it or they told you.",no:"Saying “my app is proven” after a tiny test.",rule:"Same task. Same measure. Be honest about size.",q:[
+{p:"Before: 8 minutes (I timed 3 students). After: 3 minutes (5 testers used my prototype). What is a fair way to say it?",o:["My app is proven to save 5 minutes for everyone.","In a small test, the time went from 8 to 3 minutes. This is a sign, not proof.","Students loved it.","It is 62% faster for all schools."],a:1,e:"It says how it was tested and does not say more than the data shows."},
+{p:"4 of 5 testers finished the task. How do you report it?",o:["80% success","4 of 5 testers finished","Everyone finished","It works"],a:1,e:"With tiny groups, counts are more honest. A percentage looks stronger than your data is."},
+{p:"Why must the before and after use the same task?",o:["So the comparison is fair","To make the report longer","It is just a rule for fun","It does not matter"],a:0,e:"Like a fair test in science: change only one thing, or you cannot tell what caused the result."}]}
+];
+var total=0,got=0,h="";
+L.forEach(function(l){
+h+='<section class="lesson" id="l'+l.n+'"><p class="num" aria-hidden="true">'+l.n+'</p><h2>'+l.t+'</h2><p class="old">'+l.o+'</p><p class="one">'+l.one+'</p>';
+h+='<div class="box"><h3>Like in school</h3><p>'+l.sch+'</p></div><div class="box"><h3>Use this</h3><p>'+l.frame+'</p></div>';
+h+='<div class="eg"><h3>Canteen example</h3><p>'+l.eg+'</p></div>';
+h+='<div class="pair"><div class="do"><b>Do</b>'+l.ok+'</div><div class="dont"><b>Don’t</b>'+l.no+'</div></div>';
+if(l.pairs){h+='<div class="box"><h3>Better and weaker questions</h3>';l.pairs.forEach(function(p){h+='<div class="pair" style="margin:8px 0 0"><div class="do"><b>Better</b>'+p[0]+'</div><div class="dont"><b>Weaker</b>'+p[1]+'</div></div>'});h+='</div>'}
+h+='<p class="rule">Remember: '+l.rule+'</p><div class="quiz"><h3>Quick quiz</h3>';
+l.q.forEach(function(q){total++;
+h+='<div class="qc"><p>'+q.p+'</p><div class="opts">';
+q.o.forEach(function(o,i){h+='<button type="button" class="opt" data-c="'+(i===q.a?1:0)+'">'+o+'</button>'});
+h+='</div><div class="msg" role="status"></div><div class="why"><b>Why:</b> '+q.e+'</div></div>'});
+h+='</div></section>'});
+document.getElementById("lessons").innerHTML=h;
+function sc(){var s=document.getElementById("score");s.textContent=got===total?"All "+total+" right!":got+" / "+total}
+sc();
+document.getElementById("lessons").addEventListener("click",function(e){
+var b=e.target.closest(".opt");if(!b)return;
+var c=b.closest(".qc");if(c.classList.contains("ok"))return;
+var m=c.querySelector(".msg");
+if(b.getAttribute("data-c")==="1"){b.classList.add("yes");m.textContent="Correct!";c.querySelector(".why").classList.add("on");c.classList.add("ok");got++;sc()}
+else{b.classList.add("no");m.textContent="Not quite. Try another one."}
+});
+</script>
+</body>
+</html>
